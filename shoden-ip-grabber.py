@@ -6,7 +6,7 @@ import time
 import colorama
 
 cookies = {
-    'polito': '"41aa6f2f1ca6f5bbbca24247bf994563626cd9b6626c2c32ead64ec654ec71b8!"',
+    'polito': '',
 }
 
 headers = {
