@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 import time
 import colorama
 
+#coded by g0dmax55
+
 cookies = {
     'polito': '',
 }
