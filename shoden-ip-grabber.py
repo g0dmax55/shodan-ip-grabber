@@ -25,17 +25,17 @@ headers = {
     'Cache-Control': 'max-age=0',
 }
 
-params = {
+p1 = {
     'query': 'hash:65968234',
 }
 
-params2 = {
+p2 = {
     'query': 'hash:65968234',
     'page': '2',
 }
 
 
-def fetching():
+def fetching(params):
     try:
         response = requests.get('https://beta.shodan.io/search',params=params, cookies=cookies, headers=headers)
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -52,24 +52,8 @@ def fetching():
             f.close()
             print("\033[1;31m", data4)
 
-        response2 = requests.get('https://beta.shodan.io/search',params=params2, cookies=cookies, headers=headers)
-        soup2 = BeautifulSoup(response2.content, 'html.parser')
-        data_2 = soup2.findAll(class_="title text-dark")
-
-        for title in data_2:
-            time.sleep(0.1)
-            data_2 = title
-            data_3 = (data_2.get('href'))
-            data_4 = data_3.replace('/host/', '')
-            f = open("ip.txt", 'a')
-            f.write(f'{data_4}\n')
-            f.close()
-            print("\033[1;31m", data_4)
-
-    except KeyboardInterrupt:
-        print("\nEXIT !")
-
-fetching()
+fetching(p1)
+fetching(p2)
 
 
 
